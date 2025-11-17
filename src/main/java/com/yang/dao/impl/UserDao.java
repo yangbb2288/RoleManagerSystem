@@ -13,9 +13,10 @@ public class UserDao implements UserDaoIO {
     //1为修改用户信息，2为查询用户信息，3为删除用户
     public User[] selectall() {
         try {
-            Result result = JDBC.Jdbc().run("select * from user", 2);
+            //select user and  role
+            Result result = JDBC.Jdbc().run("select u.*, r.role_name " + "from user u " + "left join role r on u.role_id = r.role_id", 2);
             ResultSet rs = (ResultSet) result.getData();
-            if(result.getCode()!=200){
+            if (result.getCode() != 200) {
                 return null;
             }
             List<User> users = new ArrayList<>();
@@ -26,10 +27,14 @@ public class UserDao implements UserDaoIO {
                 user.setName(rs.getString("name"));
                 user.setPassword(rs.getString("password"));
                 user.setRole_id(rs.getInt("role_id"));
-                users.add( user);
+                user.setRole_name(rs.getString("role_name"));
+                if(user.getRole_name()==null){
+                    user.setRole_name("无");
+                }
+                users.add(user);
             }
             return users.toArray(new User[users.size()]);
-        }catch (Exception e){
+        } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }
@@ -37,9 +42,9 @@ public class UserDao implements UserDaoIO {
     //查找单个用户
     public User selectone(User user) {
         String name = user.getName();
-        if(name==null){
+        if (name == null) {
             try {
-                Result result = JDBC.Jdbc().run("select * from user where user_id = '" + user.getUser_id() + "'", 2);
+                Result result = JDBC.Jdbc().run("select u.*,r.role_name from user u left join role r on u.role_id = r.role_id where user_id = '" + user.getUser_id() + "'", 2);
                 ResultSet rs = (ResultSet) result.getData();
                 if (!rs.next()) return null;
                 User user1 = new User();
@@ -47,13 +52,17 @@ public class UserDao implements UserDaoIO {
                 user1.setName(rs.getString("name"));
                 user1.setPassword(rs.getString("password"));
                 user1.setRole_id(rs.getInt("role_id"));
+                user1.setRole_name(rs.getString("role_name"));
+                if(user1.getRole_name()==null){
+                    user1.setRole_name("无");
+                }
                 return user1;
-            }catch (Exception e){
+            } catch (Exception e) {
                 throw new RuntimeException(e);
             }
         }
         try {
-            Result result = JDBC.Jdbc().run("select * from user where name = '" + name + "'", 2);
+            Result result = JDBC.Jdbc().run("select u.*,r.role_name from user u left join role r on u.role_id=r.role_id where name = '" + name + "'", 2);
             ResultSet rs = (ResultSet) result.getData();
             if (!rs.next()) return null;
             User user1 = new User();
@@ -61,6 +70,10 @@ public class UserDao implements UserDaoIO {
             user1.setName(rs.getString("name"));
             user1.setPassword(rs.getString("password"));
             user1.setRole_id(rs.getInt("role_id"));
+            user1.setRole_name(rs.getString("role_name"));
+            if(user1.getRole_name()==null){
+                user1.setRole_name("无");
+            }
             return user1;
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -84,6 +97,7 @@ public class UserDao implements UserDaoIO {
             throw new RuntimeException(e);
         }
     }
+
     //删除用户
     public boolean deleteuser(User user) {
         try {
@@ -96,6 +110,7 @@ public class UserDao implements UserDaoIO {
             throw new RuntimeException(e);
         }
     }
+
     //修改用户信息
     public boolean updateuser(User user) {
         try {

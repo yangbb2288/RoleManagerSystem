@@ -19,7 +19,7 @@ public class MainMenu {
     PermissionController permissionController = new PermissionController();
     private static Scanner scanner = new Scanner(System.in);
     private static MainMenu mainMenu;
-    private static User n_user=null;
+    private static User n_user = null;
 
     static {
         mainMenu = new MainMenu();
@@ -82,7 +82,6 @@ public class MainMenu {
         System.out.print("请输入密码:");
         String password = scanner.next();
         scanner.nextLine();
-        System.out.println();
         User user = new User();
         user.setName(name);
         user.setPassword(password);
@@ -151,8 +150,8 @@ public class MainMenu {
                 case 4:
                     deleteUser();
                     break;
-                    case 5:
-                        return;
+                case 5:
+                    return;
                 default:
                     System.out.println("请输入正确的选项");
                     waitF();
@@ -167,12 +166,12 @@ public class MainMenu {
         user.setName(scanner.next());
         scanner.nextLine();
         Result result = userController.queryUser(user);
-        System.out.println("==================查询列表===================");
-        if(result.getCode() == 200){
+        System.out.println("\n==================查询列表===================");
+        if (result.getCode() == 200) {
             User user1 = (User) result.getData();
-            System.out.printf("|%-10s| %-15s| %-7s |%n", "用户ID", "用户名", "角色ID");
+            System.out.printf("|%-10s| %-15s| %-7s |%n", "用户ID", "用户名", "角色");
             System.out.println("-------------------------------------------");
-            System.out.printf("|%-11d| %-17s| %-9s|%n", user1.getUser_id(), user1.getName(), user1.getRole_id());
+            System.out.printf("|%-11d| %-17s| %-9s|%n", user1.getUser_id(), user1.getName(), user1.getRole_name());
             System.out.println("===========================================");
             waitF();
             return;
@@ -181,39 +180,39 @@ public class MainMenu {
         System.out.println("===========================================");
         waitF();
     }
+
     //查询所有用户
     public void queryAllUser() {
         Result result = userController.queryAllUser();
-        System.out.println("==================查询列表===================");
-        if (result.getCode() == 200){
+        System.out.println("\n==================查询列表===================");
+        if (result.getCode() == 200) {
             User[] users = (User[]) result.getData();
-            System.out.printf("|%-10s| %-15s| %-7s |%n", "用户ID", "用户名", "角色ID");
+            System.out.printf("|%-10s| %-15s| %-7s |%n", "用户ID", "用户名", "角色");
             System.out.println("-------------------------------------------");
             for (User user : users) {
-                System.out.printf("|%-11d| %-17s| %-9s|%n", user.getUser_id(), user.getName(), user.getRole_id());
+                System.out.printf("|%-11d| %-17s| %-9s|%n", user.getUser_id(), user.getName(), user.getRole_name());
             }
-            System.out.println("===========================================");
-            waitF();
-            return;
+        } else {
+            System.out.println(result.getMsg());
         }
-        System.out.println(result.getMsg());
         System.out.println("===========================================");
         waitF();
     }
+
     //修改用户
     public void updateUser() {
-        while(true){
+        while (true) {
             User user = new User();
             queryAllUser();
             System.out.print("请输入用户id(输入0退出):");
             user.setUser_id(scanner.nextInt());
             scanner.nextLine();
-            if (user.getUser_id()==0) {
+            if (user.getUser_id() == 0) {
                 return;
             }
             Result result = userController.queryUser(user);
             User user1 = (User) result.getData();
-            if(result.getCode()!=200){
+            if (result.getCode() != 200) {
                 System.out.println("用户不存在");
                 waitF();
                 continue;
@@ -225,29 +224,29 @@ public class MainMenu {
                 case "用户名":
                     System.out.print("请输入新用户名:");
                     user1.setName(scanner.next());
-                    scanner.nextLine();
                     break;
                 case "密码":
                     System.out.print("请输入新密码:");
                     user1.setPassword(scanner.next());
-                    scanner.nextLine();
                     break;
-                case "角色ID":
-                    System.out.print("请输入新角色ID:");
+                case "角色":
+                    queryAllRole();
+                    System.out.println();
+                    System.out.print("请输入要成为的角色ID:");
                     user1.setRole_id(scanner.nextInt());
-                    scanner.nextLine();
                     break;
                 default:
                     System.out.println("请输入正确的选项");
                     waitF();
                     continue;
             }
+            scanner.nextLine();
             Result resultd = userController.updateUser(user1);
             System.out.println(resultd.getMsg());
             waitF();
-
         }
     }
+
     //删除用户
     public void deleteUser() {
         while (true) {
@@ -256,11 +255,11 @@ public class MainMenu {
             System.out.print("请输入用户ID(输入0退出):");
             user.setUser_id(scanner.nextInt());
             scanner.nextLine();
-            if (user.getUser_id()==0) {
+            if (user.getUser_id() == 0) {
                 return;
             }
             Result results = userController.queryUser(user);
-            if(results.getCode()!=200){
+            if (results.getCode() != 200) {
                 System.out.println("用户不存在");
                 waitF();
                 continue;
@@ -272,9 +271,9 @@ public class MainMenu {
                 Result result = userController.deleteUser(user);
                 System.out.println(result.getMsg());
                 waitF();
-            }else if (choice.equals("n")) {
+            } else if (choice.equals("n")) {
                 continue;
-            }else {
+            } else {
                 System.out.println("请输入正确的选项");
                 waitF();
                 continue;
@@ -287,7 +286,7 @@ public class MainMenu {
         while (true) {
             System.out.println("1.查询角色");
             System.out.println("2.显示所有角色");
-            System.out.println("3.修改角色");
+            System.out.println("3.修改角色名称");
             System.out.println("4.添加角色");
             System.out.println("5.删除角色");
             System.out.println("6.返回");
@@ -326,15 +325,15 @@ public class MainMenu {
         role.setRoleName(scanner.next());
         scanner.nextLine();
         Result result = roleController.queryRole(role);
-        System.out.println("==================查询列表===================");
+        System.out.println("\n==================查询列表===================");
         if (result.getCode() == 200) {
             Role roles = (Role) result.getData();
             System.out.printf("|%-10s| %-15s| %-7s |%n", "角色ID", "角色名", "权限ID");
             System.out.println("-------------------------------------------");
-                System.out.printf("|%-11d| %-17s| %-9s|%n",
-                        roles.getId(),
-                        roles.getRoleName(),
-                        roles.getPermission_id());
+            System.out.printf("|%-11d| %-17s| %-9s|%n",
+                    roles.getId(),
+                    roles.getRoleName(),
+                    roles.getPermission_id());
             System.out.println("===========================================");
             waitF();
             return;
@@ -347,7 +346,7 @@ public class MainMenu {
     //查询所有角色
     public void queryAllRole() {
         Result result = roleController.queryAllRole();
-        System.out.println("==================查询列表===================");
+        System.out.println("\n==================查询列表===================");
         if (result.getCode() == 200) {
             Role[] roles = (Role[]) result.getData();
             System.out.printf("|%-10s| %-15s| %-7s |%n", "角色ID", "角色名", "权限ID");
@@ -369,7 +368,7 @@ public class MainMenu {
 
     //修改角色
     public void updateRole() {
-        while ( true) {
+        while (true) {
             Role role = new Role();
             queryAllRole();
             System.out.print("请输入角色ID(输入0退出):");
@@ -378,32 +377,16 @@ public class MainMenu {
             if (role.getId() == 0) {
                 return;
             }
-            Result s=roleController.queryRole(role);
+            Result s = roleController.queryRole(role);
             if (s.getCode() != 200) {
                 System.out.println("请输入正确选项");
                 waitF();
                 continue;
             }
             role = (Role) s.getData();
-            System.out.print("\n请输要修改信息:");
-            String info = scanner.next();
+            System.out.print("请输入角色名:");
+            role.setRoleName(scanner.next());
             scanner.nextLine();
-            switch (info) {
-                case "角色名":
-                    System.out.print("请输入新角色名:");
-                    role.setRoleName(scanner.next());
-                    scanner.nextLine();
-                    break;
-                case "权限ID":
-                    System.out.print("请输入新权限ID:");
-                    role.setPermission_id(scanner.next());
-                    scanner.nextLine();
-                    break;
-                default:
-                    System.out.println("请输入正确的选项");
-                    waitF();
-                    continue;
-            }
             Result result = roleController.updateRole(role);
             System.out.println(result.getMsg());
             waitF();
@@ -435,7 +418,7 @@ public class MainMenu {
             if (role.getId() == 0) {
                 return;
             }
-            Result s=roleController.queryRole(role);
+            Result s = roleController.queryRole(role);
             if (s.getCode() != 200) {
                 System.out.println("请输入正确选项");
                 waitF();
@@ -462,7 +445,7 @@ public class MainMenu {
     //权限管理
     public void permission_manager() {
         while (true) {
-            System.out.println("==================权限管理===================");
+            System.out.println("\n==================权限管理===================");
             System.out.println("1.查询所有权限");
             System.out.println("2.修改权限");
             System.out.println("3.增加新权限");
@@ -493,14 +476,19 @@ public class MainMenu {
             }
         }
     }
+
     //1.查询所有权限
-    public void queryAllPermission(){
-        Result result=permissionController.selectALLPermission();
+    public void queryAllPermission() {
+        Result result = permissionController.selectALLPermission();
+
     }
+
     //3.修改权限
-    public void updatePermission(){}
+    public void updatePermission() {
+    }
+
     //4.添加权限
-    public void addPermission(){
+    public void addPermission() {
         Permission permission = new Permission();
         System.out.print("请输入权限名称:");
         permission.setPermissionName(scanner.next());
@@ -509,8 +497,9 @@ public class MainMenu {
         System.out.println(result.getMsg());
         waitF();
     }
+
     //5.删除权限
-    public void deletePermission(){
+    public void deletePermission() {
 
     }
 

@@ -1,9 +1,20 @@
 package com.yang.entity;
 
+import java.util.List;
+
 public class Permission {
     private int permission_id;
     private String permissionName;
     private int role_id;
+    private List<Role> roles;
+
+    public List<Role> getRole() {
+        return roles;
+    }
+
+    public void setRole(List<Role> roles) {
+        this.roles = roles;
+    }
 
     public int getPermission_id() {
         return permission_id;

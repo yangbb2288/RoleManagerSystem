@@ -34,4 +34,14 @@ public class PermissionController {
             return new Result(500,e.getMessage(),null);
         }
     }
+
+    public Result selectPermission(Permission permission){
+        logger.info("查询权限:");
+        try {
+            logger.info("查询权限开始");
+            return new Result(200,"查询成功",permissionServiceIO.selectPermission(permission));
+        }catch (Exception e){
+            return new Result(500,e.getMessage(),null);
+        }
+    }
 }

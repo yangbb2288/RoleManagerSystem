@@ -14,4 +14,20 @@ public class PermissionService implements PermissionServiceIO {
             throw new RuntimeException(e);
         }
     }
+
+    public Permission selectPermission(Permission permission){
+        try {
+            return permissionDaoIO.selectPermission(permission);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public Permission[] selectALLPermission(){
+        try {
+            return permissionDaoIO.selectALLPermission();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

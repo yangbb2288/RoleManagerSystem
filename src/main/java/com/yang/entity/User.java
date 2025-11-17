@@ -5,6 +5,15 @@ public class User {
     private String name;
     private String password;
     private int role_id;
+    private String role_name;
+
+    public String getRole_name() {
+        return role_name;
+    }
+
+    public void setRole_name(String role_name) {
+        this.role_name = role_name;
+    }
 
     public int getUser_id() {
         return user_id;

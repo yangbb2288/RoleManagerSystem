@@ -30,7 +30,7 @@ public class RoleDao implements RoleDaoIO {
     }
     public boolean deleterole(Role role){
         try {
-            Result result = JDBC.Jdbc().run("delete from role where id = '" + role.getId() + "'", 3);
+            Result result = JDBC.Jdbc().run("delete from role where role_id = '" + role.getId() + "'", 3);
             if(result.getCode() == 200) return true;
             return false;
         } catch (Exception e) {
@@ -40,8 +40,7 @@ public class RoleDao implements RoleDaoIO {
     public boolean updaterole(Role role){
         try {
             Result result = JDBC.Jdbc().run("update role set role_name = '"
-                    + role.getRoleName() + "',permission_id = '"
-                    + role.getPermission_id() + "' where id = '"
+                    + role.getRoleName() +  "' where role_id = '"
                     + role.getId() + "'", 1);
             if(result.getCode() == 200) return true;
             return false;
@@ -54,10 +53,10 @@ public class RoleDao implements RoleDaoIO {
         ResultSet rs = null;
         if(role.getRoleName()==null){
             try {
-                s= JDBC.Jdbc().run("select * from role where id = '" + role.getId() + "'", 2);
+                s= JDBC.Jdbc().run("select * from role where role_id = '" + role.getId() + "'", 2);
                 rs = (ResultSet) s.getData();
                 if (!rs.next()) return null;
-                role.setId(rs.getInt("id"));
+                role.setId(rs.getInt("role_id"));
                 role.setRoleName(rs.getString("role_name"));
                 role.setPermission_id(rs.getString("permission_id"));
                 return role;
@@ -69,7 +68,7 @@ public class RoleDao implements RoleDaoIO {
             s= JDBC.Jdbc().run("select * from role where role_name = '" + role.getRoleName() + "'", 2);
             rs = (ResultSet) s.getData();
             if (!rs.next()) return null;
-            role.setId(rs.getInt("id"));
+            role.setId(rs.getInt("role_id"));
             role.setRoleName(rs.getString("role_name"));
             role.setPermission_id(rs.getString("permission_id"));
             return role;
@@ -87,7 +86,7 @@ public class RoleDao implements RoleDaoIO {
             List<Role> roles = new ArrayList<Role>();
             while (rs.next()) {
                 Role role = new Role();
-                role.setId(rs.getInt("id"));
+                role.setId(rs.getInt("role_id"));
                 role.setRoleName(rs.getString("role_name"));
                 role.setPermission_id(rs.getString("permission_id"));
                 roles.add(role);

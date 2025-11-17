@@ -1,16 +1,16 @@
 package com.yang.entity;
 
 public class Role {
-    private int id;
+    private int role_id;
     private String roleName;
     private String permission_id;
 
     public int getId() {
-        return id;
+        return role_id;
     }
 
     public void setId(int id) {
-        this.id = id;
+         this.role_id = id;
     }
 
     public String getRoleName() {
@@ -31,7 +31,7 @@ public class Role {
     @Override
     public String toString() {
         return "Role{" +
-                "id=" + id +
+                "role_id=" + role_id +
                 ", roleName='" + roleName + '\'' +
                 ", permission_id='" + permission_id + '\'' +
                 '}';
