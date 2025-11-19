@@ -15,6 +15,22 @@ public class PermissionService implements PermissionServiceIO {
         }
     }
 
+    public boolean deletePermission(Permission permission){
+        try {
+            return permissionDaoIO.deletePermission(permission);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public boolean updatePermission(Permission permission){
+        try {
+            return permissionDaoIO.updatePermission(permission);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public Permission selectPermission(Permission permission){
         try {
             return permissionDaoIO.selectPermission(permission);

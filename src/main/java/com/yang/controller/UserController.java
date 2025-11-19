@@ -55,6 +55,14 @@ public class UserController {
         logger.info("修改用户:");
         try {
             logger.info("修改用户信息:" + user);
+            if(user.getRole_id()!=-1){
+                Role roles=new Role() ;
+                roles.setId(user.getRole_id());
+                Role role = roleService.selectRole(roles);
+                if(role==null){
+                    return new Result(400, "修改失败,角色不存在", null);
+                }
+            }
             boolean flag = userService.update(user);
             if (flag) {
                 logger.info("修改用户成功");

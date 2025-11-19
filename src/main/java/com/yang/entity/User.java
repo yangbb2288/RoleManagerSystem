@@ -1,11 +1,23 @@
 package com.yang.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class User {
     private int user_id;
     private String name;
     private String password;
     private int role_id;
     private String role_name;
+    private List<String> permissions_name=new ArrayList<>();
+
+    public List<String> getPermissions_name() {
+        return permissions_name;
+    }
+
+    public void setPermissions_name(List<String> permissions_name) {
+        this.permissions_name = permissions_name;
+    }
 
     public String getRole_name() {
         return role_name;

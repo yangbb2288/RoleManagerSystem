@@ -1,9 +1,20 @@
 package com.yang.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Role {
     private int role_id;
     private String roleName;
-    private String permission_id;
+    private List<String> permissions_name=new ArrayList<>();
+
+    public List<String> getPermissions_name() {
+        return permissions_name;
+    }
+
+    public void setPermissions_name(List<String> permissions_name) {
+        this.permissions_name = permissions_name;
+    }
 
     public int getId() {
         return role_id;
@@ -21,19 +32,11 @@ public class Role {
         this.roleName = roleName;
     }
 
-    public String getPermission_id() {
-        return permission_id;
-    }
-
-    public void setPermission_id(String permission_id) {
-        this.permission_id = permission_id;
-    }
     @Override
     public String toString() {
         return "Role{" +
                 "role_id=" + role_id +
                 ", roleName='" + roleName + '\'' +
-                ", permission_id='" + permission_id + '\'' +
                 '}';
     }
 }

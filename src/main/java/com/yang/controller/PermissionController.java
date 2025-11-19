@@ -12,7 +12,6 @@ public class PermissionController {
     public Result addPermission(Permission permission){
         logger.info("添加权限:");
         try {
-            permission.setRole_id(0);
             logger.info("添加权限信息:"+permission);
             boolean flag = permissionServiceIO.addPermission(permission);
             if(flag){
@@ -21,6 +20,38 @@ public class PermissionController {
             }
             logger.info("添加权限失败");
             return new Result(400,"添加失败",null);
+        }catch (Exception e){
+            return new Result(500,e.getMessage(),null);
+        }
+    }
+
+    public Result deletePermission(Permission permission){
+        logger.info("删除权限:");
+        try {
+            logger.info("删除权限开始");
+            boolean flag = permissionServiceIO.deletePermission(permission);
+            if(flag){
+                logger.info("删除权限成功");
+                return new Result(200,"删除成功",null);
+            }
+            logger.info("删除权限失败");
+            return new Result(400,"删除失败",null);
+        }catch (Exception e){
+            return new Result(500,e.getMessage(),null);
+        }
+    }
+
+    public Result updatePermission(Permission permission){
+        logger.info("修改权限:");
+        try {
+            logger.info("修改权限开始");
+            boolean flag = permissionServiceIO.updatePermission(permission);
+            if(flag){
+                logger.info("修改权限成功");
+                return new Result(200,"修改成功",null);
+            }
+            logger.info("修改权限失败");
+            return new Result(400,"修改失败",null);
         }catch (Exception e){
             return new Result(500,e.getMessage(),null);
         }
