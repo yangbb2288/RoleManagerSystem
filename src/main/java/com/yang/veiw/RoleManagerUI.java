@@ -9,13 +9,33 @@ public class RoleManagerUI extends MainMenu {
     private RoleController roleController = new RoleController();
     //角色管理
     public void role_manager() {
+        boolean flag = false;
+        n_role =(Role) roleController.queryRole(n_role).getData();
+        if(n_role == null){
+            System.out.println("您没有权限");
+            waitF();
+            return;
+        }
+        for(String permission_name:n_role.getPermissions_name()){
+            if(permission_name.equals("角色管理")){
+                flag = true;
+                break;
+            }
+        }
+        if(!flag){
+            System.out.println("您没有权限");
+            waitF();
+            return;
+        }
         while (true) {
-            System.out.println("1.查询角色");
-            System.out.println("2.显示所有角色");
-            System.out.println("3.修改角色名称");
-            System.out.println("4.添加角色");
-            System.out.println("5.删除角色");
-            System.out.println("6.返回");
+            System.out.println("\n==================角色管理===================");
+            System.out.println("------------------1.查询角色-----------------");
+            System.out.println("------------------2.显示所有角色--------------");
+            System.out.println("------------------3.修改角色名称--------------");
+            System.out.println("------------------4.添加角色-----------------");
+            System.out.println("------------------5.删除角色-----------------");
+            System.out.println("------------------6.返回--------------------");
+            System.out.println("===========================================");
             System.out.print("请选择:");
             int choice = scanner.nextInt();
             scanner.nextLine();
@@ -51,44 +71,44 @@ public class RoleManagerUI extends MainMenu {
         role.setRoleName(scanner.next());
         scanner.nextLine();
         Result result = roleController.queryRole(role);
-        System.out.println("\n==================查询列表===================");
+        System.out.println("\n============================查询列表===============================");
         if (result.getCode() == 200) {
             Role roles = (Role) result.getData();
             System.out.printf("|%-10s| %-15s| %-7s %n", "角色ID", "角色名", "权限");
-            System.out.println("-------------------------------------------");
+            System.out.println("----------------------------------------------------------------");
             System.out.printf("|%-11d| %-17s| %-9s%n",
                     roles.getId(),
                     roles.getRoleName(),
                     roles.getPermissions_name().toString());
-            System.out.println("===========================================");
+            System.out.println("================================================================");
             waitF();
             return;
         }
         System.out.println(result.getMsg());
-        System.out.println("===========================================");
+        System.out.println("================================================================");
         waitF();
     }
 
     //查询所有角色
     public void queryAllRole() {
         Result result = roleController.queryAllRole();
-        System.out.println("\n==================查询列表===================");
+        System.out.println("\n============================查询列表===============================");
         if (result.getCode() == 200) {
             Role[] roles = (Role[]) result.getData();
             System.out.printf("|%-10s| %-15s| %-7s %n", "角色ID", "角色名", "权限");
-            System.out.println("-------------------------------------------");
+            System.out.println("----------------------------------------------------------------");
             for (Role role1 : roles) {
                 System.out.printf("|%-11d| %-17s| %-9s%n",
                         role1.getId(),
                         role1.getRoleName(),
                         role1.getPermissions_name().toString());
             }
-            System.out.println("===========================================");
+            System.out.println("================================================================");
             waitF();
             return;
         }
         System.out.println(result.getMsg());
-        System.out.println("===========================================");
+        System.out.println("================================================================");
         waitF();
     }
 

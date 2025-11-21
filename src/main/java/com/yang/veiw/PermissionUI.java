@@ -15,13 +15,31 @@ public class PermissionUI extends MainMenu {
     private AddTableController addTableController = new AddTableController();
     //权限管理
     public void permission_manager() {
+        boolean flag = false;
+        n_role = (Role) roleController.queryRole(n_role).getData();
+        if(n_role==null){
+            System.out.println("您没有权限");
+            waitF();
+            return;
+        }
+        for(String permission_name:n_role.getPermissions_name()){
+            if (permission_name.equals("权限管理")) {
+                flag = true;
+                break;
+            }
+        }
+        if (!flag) {
+            System.out.println("您没有权限");
+            waitF();
+            return;
+        }
         while (true) {
-            System.out.println("\n==================权限管理===================");
-            System.out.println("1.查询所有权限");
-            System.out.println("2.增加权限");
-            System.out.println("3.增加新权限");
-            System.out.println("4.删除校验");
-            System.out.println("5.返回");
+            System.out.println("\n==================权限管理=================");
+            System.out.println("----------------1.查询所有权限--------------");
+            System.out.println("----------------2.增加权限-----------------");
+            System.out.println("----------------3.增加新权限---------------");
+            System.out.println("----------------4.删除校验-----------------");
+            System.out.println("----------------5.返回--------------------");
             System.out.println("=========================================");
             System.out.print("请输入你的选择：");
             int i = scanner.nextInt();
@@ -51,21 +69,22 @@ public class PermissionUI extends MainMenu {
     //1.查询所有权限
     public void queryAllPermission() {
         Result result = permissionController.selectALLPermission();
-        System.out.println("\n==================查询列表===================");
+        System.out.println("\n============================查询列表===============================");
         if (result.getCode() == 200) {
             Permission[] permissions = (Permission[]) result.getData();
             System.out.printf("|%-10s| %-15s| %-7s %n", "权限ID", "权限名", "角色");
-            System.out.println("-------------------------------------------");
+            System.out.println("----------------------------------------------------------------");
             for (Permission permission1 : permissions) {
                 System.out.printf("|%-11d| %-14s| %-10s%n",
                         permission1.getPermission_id(),
                         permission1.getPermissionName(),
                         permission1.getRoles_name()).toString();
             }
-            System.out.println("===========================================");
+            System.out.println("================================================================");
             waitF();
         } else {
             System.out.println(result.getMsg());
+            System.out.println("================================================================");
             waitF();
         }
     }
@@ -96,25 +115,30 @@ public class PermissionUI extends MainMenu {
                 case 1:
                     System.out.print("请输入权限Id:");
                     permission.setPermission_id(scanner.nextInt());
-                    if(permissionController.selectPermission(permission)== null){
+                    scanner.nextLine();
+                    permission = (Permission) permissionController.selectPermission(permission).getData();
+                    if(permission== null){
                         System.out.println("请输入正确选项");
                         waitF();
                         continue;
                     }
                     Result result1 =addTableController.deleteTable(permission, role);
                     System.out.println(result1.getMsg());
+                    waitF();
                     break;
                 case 2:
                     System.out.print("请输入权限Id:");
                     permission.setPermission_id(scanner.nextInt());
-                    if(permissionController.selectPermission(permission)== null){
+                    scanner.nextLine();
+                    permission = (Permission) permissionController.selectPermission(permission).getData();
+                    if(permission== null){
                         System.out.println("请输入正确选项");
                         waitF();
                         continue;
                     }
                     Result result2 = addTableController.addTable(permission, role);
                     System.out.println(result2.getMsg());
-                    scanner.nextLine();
+                    waitF();
                     break;
                 default:
                     System.out.println("请输入正确的选项");

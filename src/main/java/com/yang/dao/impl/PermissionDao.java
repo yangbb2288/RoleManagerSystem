@@ -10,7 +10,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PermissionDao implements PermissionDaoIO {
+public class PermissionDao extends JDBC implements PermissionDaoIO {
     Permission_RoleDaoIO permission_RoleDaoIO = new Permission_RoleDao();
 
     public boolean addPermission(Permission permission) {
@@ -24,10 +24,7 @@ public class PermissionDao implements PermissionDaoIO {
             }
             return false;
         } catch (Exception e) {
-            String message = e.toString();
-            if (message.contains(":")) {
-                message = message.substring(message.indexOf(":") + 2);
-            }
+            String message = e.getMessage();
             throw new RuntimeException(message);
         }
     }
@@ -43,10 +40,7 @@ public class PermissionDao implements PermissionDaoIO {
             }
             return false;
         } catch (Exception e) {
-            String message = e.toString();
-            if (message.contains(":")) {
-                message = message.substring(message.indexOf(":") + 2);
-            }
+            String message = e.getMessage();
             throw new RuntimeException(message);
         }
     }
@@ -62,10 +56,7 @@ public class PermissionDao implements PermissionDaoIO {
             }
             return false;
         } catch (Exception e) {
-            String message = e.toString();
-            if (message.contains(":")) {
-                message = message.substring(message.indexOf(":") + 2);
-            }
+            String message = e.getMessage();
             throw new RuntimeException(message);
         }
     }
@@ -100,10 +91,7 @@ public class PermissionDao implements PermissionDaoIO {
             }
             return null;
         } catch (Exception e) {
-            String message = e.toString();
-            if (message.contains(":")) {
-                message = message.substring(message.indexOf(":") + 2);
-            }
+            String message = e.getMessage();
             throw new RuntimeException(message);
         }
     }
@@ -137,10 +125,7 @@ public class PermissionDao implements PermissionDaoIO {
             }
             return permissions.toArray(new Permission[permissions.size()]);
         } catch (Exception e) {
-            String message = e.toString();
-            if (message.contains(":")) {
-                message = message.substring(message.indexOf(":") + 2);
-            }
+            String message = e.getMessage() ;
             throw new RuntimeException(message);
         }
     }

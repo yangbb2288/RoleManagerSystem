@@ -60,7 +60,13 @@ public class PermissionController {
         logger.info("查询所有权限:");
         try {
             logger.info("查询所有权限开始");
-            return new Result(200,"查询成功",permissionServiceIO.selectALLPermission());
+            Permission[] permissions = permissionServiceIO.selectALLPermission();
+            if(permissions!=null){
+                logger.info("查询所有权限成功");
+                return new Result(200,"查询成功",permissions);
+            }
+            logger.info("查询所有权限失败");
+            return new Result(400,"查询失败",null);
         }catch (Exception e){
             return new Result(500,e.getMessage(),null);
         }
@@ -70,7 +76,13 @@ public class PermissionController {
         logger.info("查询权限:");
         try {
             logger.info("查询权限开始");
-            return new Result(200,"查询成功",permissionServiceIO.selectPermission(permission));
+            Permission permission1 = permissionServiceIO.selectPermission(permission);
+            if(permission1!=null){
+                logger.info("查询权限成功");
+                return new Result(200,"查询成功",permission1);
+            }
+            logger.info("查询权限失败");
+            return new Result(400,"查询失败",null);
         }catch (Exception e){
             return new Result(500,e.getMessage(),null);
         }

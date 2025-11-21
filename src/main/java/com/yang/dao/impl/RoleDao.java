@@ -10,7 +10,7 @@ import com.yang.until.JDBC;
 import java.sql.ResultSet;
 import java.util.*;
 
-public class RoleDao implements RoleDaoIO {
+public class RoleDao extends JDBC implements RoleDaoIO {
     Permission_RoleDaoIO permission_RoleDaoIO = new Permission_RoleDao();
 
     public boolean addrole(Role role) {
@@ -91,7 +91,8 @@ public class RoleDao implements RoleDaoIO {
             }
             return roles.toArray(new Role[roles.size()]);
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            String message = e.getMessage();
+            throw new RuntimeException(message);
         }
     }
 
@@ -115,7 +116,8 @@ public class RoleDao implements RoleDaoIO {
             }
             return role1;
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            String message = e.getMessage();
+            throw new RuntimeException(message);
         }
     }
 }

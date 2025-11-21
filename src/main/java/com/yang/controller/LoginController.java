@@ -5,9 +5,7 @@ import com.yang.entity.result.Result;
 import com.yang.service.UserServiceIO;
 import com.yang.service.impl.UserService;
 import org.apache.log4j.Logger;
-import org.apache.log4j.spi.LoggerFactory;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class LoginController {

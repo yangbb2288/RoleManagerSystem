@@ -3,6 +3,7 @@ package com.yang.veiw;
 import com.yang.MainMenu;
 import com.yang.controller.RoleController;
 import com.yang.controller.UserController;
+import com.yang.entity.Role;
 import com.yang.entity.User;
 import com.yang.entity.result.Result;
 
@@ -12,6 +13,24 @@ public class UserManagerUI extends MainMenu {
     private RoleManagerUI roleManagerUI = new RoleManagerUI();
     //用户管理
     public void user_manager() {
+        boolean flag = false;
+        n_role =(Role) roleController.queryRole(n_role).getData();
+        if(n_role == null){
+            System.out.println("您没有权限");
+            waitF();
+            return;
+        }
+        for(String permission_name:n_role.getPermissions_name()){
+            if(permission_name.equals("用户管理")){
+                flag = true;
+                break;
+            }
+        }
+        if(!flag){
+            System.out.println("您没有权限");
+            waitF();
+            return;
+        }
         while (true) {
             System.out.println("\n==================用户管理====================");
             System.out.println("----------------1.查询用户--------------------");

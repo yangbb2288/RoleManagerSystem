@@ -9,12 +9,12 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserDao implements UserDaoIO {
+public class UserDao extends JDBC implements UserDaoIO {
     //1为修改用户信息，2为查询用户信息，3为删除用户
     public User[] selectall() {
         try {
             //select user and  role
-            Result result = JDBC.Jdbc().run("select u.*, r.role_name " + "from user u " + "left join role r on u.role_id = r.role_id", 2);
+            Result result = Jdbc().run("select u.*, r.role_name " + "from user u " + "left join role r on u.role_id = r.role_id", 2);
             ResultSet rs = (ResultSet) result.getData();
             if (result.getCode() != 200) {
                 return null;
@@ -35,7 +35,8 @@ public class UserDao implements UserDaoIO {
             }
             return users.toArray(new User[users.size()]);
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            String message = e.getMessage();
+            throw new RuntimeException(message);
         }
     }
 
@@ -58,7 +59,8 @@ public class UserDao implements UserDaoIO {
                 }
                 return user1;
             } catch (Exception e) {
-                throw new RuntimeException(e);
+                String message = e.getMessage();
+                throw new RuntimeException(message);
             }
         }
         try {
@@ -76,14 +78,15 @@ public class UserDao implements UserDaoIO {
             }
             return user1;
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            String message = e.getMessage();
+            throw new RuntimeException(message);
         }
     }
 
     //增加用户
     public boolean adduser(User user) {
         try {
-            user.setRole_id(1);
+            user.setRole_id(-1);
             Result result = JDBC.Jdbc().run("insert into user values('"
                     + user.getUser_id() + "','"
                     + user.getName() + "','"
@@ -94,7 +97,8 @@ public class UserDao implements UserDaoIO {
             }
             return false;
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            String message = e.getMessage();
+            throw new RuntimeException(message);
         }
     }
 
@@ -107,7 +111,8 @@ public class UserDao implements UserDaoIO {
             }
             return false;
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            String message = e.getMessage();
+            throw new RuntimeException(message);
         }
     }
 
@@ -120,7 +125,8 @@ public class UserDao implements UserDaoIO {
             }
             return false;
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            String message = e.getMessage();
+            throw new RuntimeException(message);
         }
     }
 }

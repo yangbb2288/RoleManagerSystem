@@ -8,7 +8,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Permission_RoleDao implements Permission_RoleDaoIO {
+public class Permission_RoleDao extends JDBC implements Permission_RoleDaoIO {
     public boolean addPermission_Role(int permission_id, int role_id) {
         try {
             Result result = JDBC.Jdbc().run("insert into permission_role values('"
@@ -19,7 +19,8 @@ public class Permission_RoleDao implements Permission_RoleDaoIO {
             }
             return false;
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            String message = e.getMessage();
+            throw new RuntimeException(message);
         }
     }
     public boolean deletePermission_Role(int permission_id, int role_id) {
@@ -28,7 +29,8 @@ public class Permission_RoleDao implements Permission_RoleDaoIO {
             if (result.getCode() == 200) return true;
             return false;
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            String message = e.getMessage();
+            throw new RuntimeException(message);
         }
     }
     public int[] getPermission_id(int role_id) {
@@ -41,7 +43,8 @@ public class Permission_RoleDao implements Permission_RoleDaoIO {
             }
             return Permission_id.stream().mapToInt(Integer::intValue).toArray();
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            String message = e.getMessage();
+            throw new RuntimeException(message);
         }
     }
     public int[] getRole_id(int permission_id) {
@@ -54,7 +57,8 @@ public class Permission_RoleDao implements Permission_RoleDaoIO {
             }
             return Role_id.stream().mapToInt(Integer::intValue).toArray();
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            String message = e.getMessage();
+            throw new RuntimeException(message);
         }
     }
 }
