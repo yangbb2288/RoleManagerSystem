@@ -11,24 +11,24 @@
 在公司内部有一个系统可以管理公司员工权限，员工有相应的权限才可以访问内部一些信息，基于命令行权限管理系统居于此建立  
 
 ##二，软件功能
-![img.png](static/img.png)
+![img.png](static/img.png)  
 如上图，我们将系统划分四个UI页面，登录注册页面，用户管理页面，角色管理页面，权限管理页面.    
 登录注册页面：包含登录注册内容（后续可以加入忘记密码功能），命令行如下：  
-![img_1.png](static/img_1.png)
+![img_1.png](static/img_1.png)  
 用户管理页面：包含用户列表，添加用户，修改用户，删除用户，命令行如下：  
-![img_2.png](static/img_2.png)
+![img_2.png](static/img_2.png)  
 角色管理页面：包含角色列表，添加角色，修改角色，删除角色，命令行如下：  
-![img_3.png](static/img_3.png)
+![img_3.png](static/img_3.png)  
 权限管理页面：包含权限列表，添加权限，修改权限，删除权限，命令行如下：  
-![img_4.png](static/img_4.png)
+![img_4.png](static/img_4.png)  
 
 ##三，创新点与设计特色  
 1.使用实体类Result进行统一返回输出Result（code，返回信息，返回数据）  
-![img_6.png](static/img_6.png)
+![img_6.png](static/img_6.png)  
 2.在主页面实现当前用户基本信息储存,登录成功后，将用户信息储存在session中，方便后续使用     
-![img_5.png](static/img_5.png)
+![img_5.png](static/img_5.png)  
 3.将JDBC独立出来，实现一个工具类，并且将JDBC使用单例模式防止多线程并发   
-![img_7.png](static/img_7.png)  
+![img_7.png](static/img_7.png)   
 
 ##四,设计模式使用  
 (1)单例模式：创建一个单例JDBC类，保证一个类只有一个实例，并提供一个访问它的全局访问点。    
@@ -50,8 +50,8 @@
 8.主类：Main，MainMenu(主菜单)  
 
 ##六,流程图
-![img_8.png](static/img_8.png)
+![img_8.png](static/img_8.png)  
 
 ##七,类及其关系
-![img_10.png](static/img_10.png)  
+![img_10.png](static/img_10.png)    
 UI类负责前端将所有获取到数据标准展示出来；Controller类负责处理前端传回来请求，并调用Service类获取结果返回给前端；Service类负责处理业务；Dao类配合JDBC工具类调用数据库，完成增删查改内容。  
