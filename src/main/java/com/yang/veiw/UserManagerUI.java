@@ -147,6 +147,12 @@ public class UserManagerUI extends MainMenu {
             }
             scanner.nextLine();
             Result resultd = userController.updateUser(user1);
+            if(n_user.getUser_id()==user1.getUser_id()){
+                n_user=user1;
+                Role role = new Role();
+                role.setId(user1.getRole_id());
+                n_role =(Role) roleController.queryRole(role).getData();
+            }
             System.out.println(resultd.getMsg());
             waitF();
         }

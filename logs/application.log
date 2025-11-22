@@ -1,0 +1,209 @@
+2025-11-22 20:41:55 [main] INFO  LoginController - 用户注册:
+2025-11-22 20:41:55 [main] INFO  LoginController - 用户信息:User{user_id=0, name='cqu', password='123', role_id=0}
+2025-11-22 20:41:56 [main] ERROR LoginController - Index 0 out of bounds for length 0
+2025-11-22 20:44:05 [main] INFO  LoginController - 用户注册:
+2025-11-22 20:44:05 [main] INFO  LoginController - 用户信息:User{user_id=0, name='cqu', password='123', role_id=0}
+2025-11-22 20:44:05 [main] ERROR LoginController - Index 0 out of bounds for length 0
+2025-11-22 20:44:33 [main] INFO  LoginController - 用户注册:
+2025-11-22 20:44:33 [main] INFO  LoginController - 用户信息:User{user_id=0, name='111', password='11', role_id=0}
+2025-11-22 20:44:33 [main] ERROR LoginController - Index 0 out of bounds for length 0
+2025-11-22 20:44:47 [main] INFO  LoginController - 用户注册:
+2025-11-22 20:44:47 [main] INFO  LoginController - 用户信息:User{user_id=0, name='111', password='11', role_id=0}
+2025-11-22 20:44:58 [main] ERROR LoginController - Index 0 out of bounds for length 0
+2025-11-22 20:46:12 [main] INFO  LoginController - 用户注册:
+2025-11-22 20:46:12 [main] INFO  LoginController - 用户信息:User{user_id=0, name='111', password='11', role_id=0}
+2025-11-22 20:46:12 [main] ERROR LoginController - Index 0 out of bounds for length 0
+2025-11-22 20:46:22 [main] INFO  LoginController - 用户注册:
+2025-11-22 20:46:22 [main] INFO  LoginController - 用户信息:User{user_id=0, name='111', password='11', role_id=0}
+2025-11-22 20:46:34 [main] ERROR LoginController - Index 0 out of bounds for length 0
+2025-11-22 20:47:25 [main] INFO  LoginController - 用户注册:
+2025-11-22 20:47:25 [main] INFO  LoginController - 用户信息:User{user_id=0, name='111', password='11', role_id=0}
+2025-11-22 20:47:31 [main] INFO  LoginController - 用户注册成功
+2025-11-22 20:47:53 [main] INFO  LoginController - 用户注册:
+2025-11-22 20:47:53 [main] INFO  LoginController - 用户信息:User{user_id=0, name='cqu', password='123', role_id=0}
+2025-11-22 20:47:54 [main] INFO  LoginController - 用户注册成功
+2025-11-22 20:47:58 [main] INFO  RoleController - 查询角色:
+2025-11-22 20:47:58 [main] INFO  RoleController - 查询角色成功
+2025-11-22 20:47:58 [main] INFO  RoleController - 查询角色信息:Role{role_id=0, roleName='normal'}
+2025-11-22 20:48:03 [main] INFO  UserController - 查询用户:
+2025-11-22 20:48:03 [main] INFO  UserController - 查询用户成功
+2025-11-22 20:48:03 [main] INFO  UserController - 查询用户信息:User{user_id=0, name='cqu', password='null', role_id=0}
+2025-11-22 20:48:06 [main] INFO  UserController - 查询所有用户:
+2025-11-22 20:48:06 [main] INFO  UserController - 查询所有用户成功
+2025-11-22 20:48:06 [main] INFO  UserController - 查询所有用户信息:[Lcom.yang.entity.User;@560348e6
+2025-11-22 20:48:11 [main] INFO  UserController - 查询所有用户:
+2025-11-22 20:48:11 [main] INFO  UserController - 查询所有用户成功
+2025-11-22 20:48:11 [main] INFO  UserController - 查询所有用户信息:[Lcom.yang.entity.User;@7b993c65
+2025-11-22 20:48:18 [main] INFO  UserController - 查询用户:
+2025-11-22 20:48:18 [main] INFO  UserController - 查询用户成功
+2025-11-22 20:48:18 [main] INFO  UserController - 查询用户信息:User{user_id=26, name='null', password='null', role_id=-1}
+2025-11-22 20:48:22 [main] INFO  RoleController - 查询所有角色:
+2025-11-22 20:48:22 [main] INFO  RoleController - 查询所有角色成功
+2025-11-22 20:48:22 [main] INFO  RoleController - 查询所有角色信息:[Lcom.yang.entity.Role;@1cd629b3
+2025-11-22 20:48:28 [main] INFO  UserController - 修改用户:
+2025-11-22 20:48:28 [main] INFO  UserController - 修改用户信息:User{user_id=26, name='111', password='11', role_id=1}
+2025-11-22 20:48:28 [main] INFO  UserController - 修改用户成功
+2025-11-22 20:48:29 [main] INFO  UserController - 查询所有用户:
+2025-11-22 20:48:29 [main] INFO  UserController - 查询所有用户成功
+2025-11-22 20:48:29 [main] INFO  UserController - 查询所有用户信息:[Lcom.yang.entity.User;@5d43661b
+2025-11-22 20:48:34 [main] INFO  UserController - 查询所有用户:
+2025-11-22 20:48:34 [main] INFO  UserController - 查询所有用户成功
+2025-11-22 20:48:34 [main] INFO  UserController - 查询所有用户信息:[Lcom.yang.entity.User;@4bf48f6
+2025-11-22 20:48:40 [main] INFO  UserController - 查询用户:
+2025-11-22 20:48:40 [main] INFO  UserController - 查询用户成功
+2025-11-22 20:48:40 [main] INFO  UserController - 查询用户信息:User{user_id=25, name='null', password='null', role_id=0}
+2025-11-22 20:48:42 [main] INFO  UserController - 删除用户:
+2025-11-22 20:48:42 [main] INFO  UserController - 删除用户成功
+2025-11-22 20:48:42 [main] INFO  UserController - 查询所有用户:
+2025-11-22 20:48:42 [main] INFO  UserController - 查询所有用户成功
+2025-11-22 20:48:42 [main] INFO  UserController - 查询所有用户信息:[Lcom.yang.entity.User;@266374ef
+2025-11-22 20:48:49 [main] INFO  RoleController - 查询角色:
+2025-11-22 20:48:49 [main] INFO  RoleController - 查询角色成功
+2025-11-22 20:48:49 [main] INFO  RoleController - 查询角色信息:Role{role_id=-1, roleName='normal'}
+2025-11-22 20:48:54 [main] INFO  RoleController - 查询角色:
+2025-11-22 20:48:54 [main] INFO  RoleController - 查询角色成功
+2025-11-22 20:48:54 [main] INFO  RoleController - 查询角色信息:Role{role_id=-1, roleName='normal'}
+2025-11-22 20:48:57 [main] INFO  PermissionController - 查询所有权限:
+2025-11-22 20:48:57 [main] INFO  PermissionController - 查询所有权限开始
+2025-11-22 20:49:22 [main] INFO  PermissionController - 查询所有权限:
+2025-11-22 20:49:22 [main] INFO  PermissionController - 查询所有权限开始
+2025-11-22 20:49:28 [main] INFO  PermissionController - 查询所有权限:
+2025-11-22 20:49:28 [main] INFO  PermissionController - 查询所有权限开始
+2025-11-22 20:50:00 [main] INFO  PermissionController - 查询所有权限:
+2025-11-22 20:50:00 [main] INFO  PermissionController - 查询所有权限开始
+2025-11-22 20:50:20 [main] INFO  PermissionController - 查询所有权限:
+2025-11-22 20:50:20 [main] INFO  PermissionController - 查询所有权限开始
+2025-11-22 20:52:24 [main] INFO  PermissionController - 查询所有权限:
+2025-11-22 20:52:24 [main] INFO  PermissionController - 查询所有权限开始
+2025-11-22 20:54:31 [main] INFO  PermissionController - 查询所有权限:
+2025-11-22 20:54:31 [main] INFO  PermissionController - 查询所有权限开始
+2025-11-22 20:54:46 [main] INFO  PermissionController - 查询所有权限:
+2025-11-22 20:54:46 [main] INFO  PermissionController - 查询所有权限开始
+2025-11-22 20:56:50 [main] INFO  PermissionController - 查询所有权限:
+2025-11-22 20:56:50 [main] INFO  PermissionController - 查询所有权限开始
+2025-11-22 20:56:53 [main] INFO  PermissionController - 查询所有权限成功
+2025-11-22 20:57:55 [main] INFO  RoleController - 查询角色:
+2025-11-22 20:57:55 [main] INFO  RoleController - 查询角色成功
+2025-11-22 20:57:55 [main] INFO  RoleController - 查询角色信息:Role{role_id=-1, roleName='normal'}
+2025-11-22 20:58:20 [main] INFO  LoginController - 用户注册:
+2025-11-22 20:58:20 [main] INFO  LoginController - 用户信息:User{user_id=0, name='cqus', password='123', role_id=0}
+2025-11-22 20:58:21 [main] INFO  LoginController - 用户注册成功
+2025-11-22 20:58:24 [main] INFO  RoleController - 查询角色:
+2025-11-22 20:58:24 [main] INFO  RoleController - 查询角色成功
+2025-11-22 20:58:24 [main] INFO  RoleController - 查询角色信息:Role{role_id=0, roleName='normal'}
+2025-11-22 20:58:28 [main] INFO  UserController - 查询用户:
+2025-11-22 20:58:28 [main] INFO  UserController - 查询用户成功
+2025-11-22 20:58:28 [main] INFO  UserController - 查询用户信息:User{user_id=0, name='cqus', password='null', role_id=0}
+2025-11-22 20:58:31 [main] INFO  UserController - 查询所有用户:
+2025-11-22 20:58:31 [main] INFO  UserController - 查询所有用户成功
+2025-11-22 20:58:31 [main] INFO  UserController - 查询所有用户信息:[Lcom.yang.entity.User;@560348e6
+2025-11-22 20:58:35 [main] INFO  UserController - 查询所有用户:
+2025-11-22 20:58:35 [main] INFO  UserController - 查询所有用户成功
+2025-11-22 20:58:35 [main] INFO  UserController - 查询所有用户信息:[Lcom.yang.entity.User;@7b993c65
+2025-11-22 20:58:40 [main] INFO  UserController - 查询用户:
+2025-11-22 20:58:40 [main] INFO  UserController - 查询用户成功
+2025-11-22 20:58:40 [main] INFO  UserController - 查询用户信息:User{user_id=27, name='null', password='null', role_id=-1}
+2025-11-22 20:58:44 [main] INFO  RoleController - 查询所有角色:
+2025-11-22 20:58:44 [main] INFO  RoleController - 查询所有角色成功
+2025-11-22 20:58:44 [main] INFO  RoleController - 查询所有角色信息:[Lcom.yang.entity.Role;@1cd629b3
+2025-11-22 20:58:50 [main] INFO  UserController - 修改用户:
+2025-11-22 20:58:50 [main] INFO  UserController - 修改用户信息:User{user_id=27, name='cqu', password='123', role_id=1}
+2025-11-22 20:58:50 [main] INFO  UserController - 修改用户成功
+2025-11-22 20:58:51 [main] INFO  UserController - 查询所有用户:
+2025-11-22 20:58:51 [main] INFO  UserController - 查询所有用户成功
+2025-11-22 20:58:51 [main] INFO  UserController - 查询所有用户信息:[Lcom.yang.entity.User;@5d43661b
+2025-11-22 20:58:55 [main] INFO  UserController - 查询所有用户:
+2025-11-22 20:58:55 [main] INFO  UserController - 查询所有用户成功
+2025-11-22 20:58:55 [main] INFO  UserController - 查询所有用户信息:[Lcom.yang.entity.User;@4bf48f6
+2025-11-22 20:59:00 [main] INFO  UserController - 查询用户:
+2025-11-22 20:59:00 [main] INFO  UserController - 查询用户成功
+2025-11-22 20:59:00 [main] INFO  UserController - 查询用户信息:User{user_id=27, name='null', password='null', role_id=0}
+2025-11-22 20:59:02 [main] INFO  UserController - 删除用户:
+2025-11-22 20:59:02 [main] INFO  UserController - 删除用户成功
+2025-11-22 20:59:03 [main] INFO  UserController - 查询所有用户:
+2025-11-22 20:59:03 [main] INFO  UserController - 查询所有用户成功
+2025-11-22 20:59:03 [main] INFO  UserController - 查询所有用户信息:[Lcom.yang.entity.User;@266374ef
+2025-11-22 20:59:08 [main] INFO  RoleController - 查询角色:
+2025-11-22 20:59:08 [main] INFO  RoleController - 查询角色成功
+2025-11-22 20:59:08 [main] INFO  RoleController - 查询角色信息:Role{role_id=-1, roleName='normal'}
+2025-11-22 20:59:11 [main] INFO  RoleController - 查询角色:
+2025-11-22 20:59:11 [main] INFO  RoleController - 查询角色成功
+2025-11-22 20:59:11 [main] INFO  RoleController - 查询角色信息:Role{role_id=-1, roleName='normal'}
+2025-11-22 20:59:14 [main] INFO  PermissionController - 查询所有权限:
+2025-11-22 20:59:14 [main] INFO  PermissionController - 查询所有权限开始
+2025-11-22 20:59:14 [main] INFO  PermissionController - 查询所有权限成功
+2025-11-22 20:59:21 [main] INFO  RoleController - 查询所有角色:
+2025-11-22 20:59:21 [main] INFO  RoleController - 查询所有角色成功
+2025-11-22 20:59:21 [main] INFO  RoleController - 查询所有角色信息:[Lcom.yang.entity.Role;@1b8a29df
+2025-11-22 20:59:26 [main] INFO  RoleController - 查询角色:
+2025-11-22 20:59:26 [main] INFO  RoleController - 查询角色成功
+2025-11-22 20:59:26 [main] INFO  RoleController - 查询角色信息:Role{role_id=-1, roleName='null'}
+2025-11-22 20:59:28 [main] INFO  PermissionController - 查询所有权限:
+2025-11-22 20:59:28 [main] INFO  PermissionController - 查询所有权限开始
+2025-11-22 20:59:29 [main] INFO  PermissionController - 查询所有权限成功
+2025-11-22 20:59:38 [main] INFO  PermissionController - 查询权限:
+2025-11-22 20:59:38 [main] INFO  PermissionController - 查询权限开始
+2025-11-22 20:59:38 [main] INFO  PermissionController - 查询权限成功
+2025-11-22 20:59:38 [main] INFO  AddTableController - 添加权限表:
+2025-11-22 20:59:38 [main] INFO  AddTableController - 权限信息：Permission{permission_id=3214, permissionName='角色管理'}角色信息：Role{role_id=-1, roleName='null'}
+2025-11-22 20:59:39 [main] INFO  RoleController - 查询所有角色:
+2025-11-22 20:59:39 [main] INFO  RoleController - 查询所有角色成功
+2025-11-22 20:59:39 [main] INFO  RoleController - 查询所有角色信息:[Lcom.yang.entity.Role;@147a5d08
+2025-11-22 20:59:58 [main] INFO  PermissionController - 添加权限:
+2025-11-22 20:59:58 [main] INFO  PermissionController - 添加权限信息:Permission{permission_id=0, permissionName='权限查询'}
+2025-11-22 20:59:58 [main] INFO  PermissionController - 添加权限成功
+2025-11-22 21:00:03 [main] INFO  PermissionController - 查询所有权限:
+2025-11-22 21:00:03 [main] INFO  PermissionController - 查询所有权限开始
+2025-11-22 21:00:03 [main] INFO  PermissionController - 查询所有权限成功
+2025-11-22 21:00:06 [main] INFO  PermissionController - 查询所有权限:
+2025-11-22 21:00:06 [main] INFO  PermissionController - 查询所有权限开始
+2025-11-22 21:00:07 [main] INFO  PermissionController - 查询所有权限成功
+2025-11-22 21:00:12 [main] INFO  PermissionController - 查询权限:
+2025-11-22 21:00:12 [main] INFO  PermissionController - 查询权限开始
+2025-11-22 21:00:12 [main] INFO  PermissionController - 查询权限成功
+2025-11-22 21:00:14 [main] INFO  PermissionController - 删除权限:
+2025-11-22 21:00:14 [main] INFO  PermissionController - 删除权限开始
+2025-11-22 21:00:14 [main] INFO  PermissionController - 删除权限成功
+2025-11-22 21:00:15 [main] INFO  PermissionController - 查询所有权限:
+2025-11-22 21:00:15 [main] INFO  PermissionController - 查询所有权限开始
+2025-11-22 21:00:15 [main] INFO  PermissionController - 查询所有权限成功
+2025-11-22 21:00:22 [main] INFO  RoleController - 查询角色:
+2025-11-22 21:00:23 [main] INFO  RoleController - 查询角色成功
+2025-11-22 21:00:23 [main] INFO  RoleController - 查询角色信息:Role{role_id=-1, roleName='normal'}
+2025-11-22 21:00:29 [main] INFO  RoleController - 查询角色:
+2025-11-22 21:00:29 [main] INFO  RoleController - 查询角色成功
+2025-11-22 21:00:29 [main] INFO  RoleController - 查询角色信息:Role{role_id=0, roleName='admin'}
+2025-11-22 21:00:31 [main] INFO  RoleController - 查询所有角色:
+2025-11-22 21:00:31 [main] INFO  RoleController - 查询所有角色成功
+2025-11-22 21:00:31 [main] INFO  RoleController - 查询所有角色信息:[Lcom.yang.entity.Role;@7e5c856f
+2025-11-22 21:00:35 [main] INFO  RoleController - 查询所有角色:
+2025-11-22 21:00:35 [main] INFO  RoleController - 查询所有角色成功
+2025-11-22 21:00:35 [main] INFO  RoleController - 查询所有角色信息:[Lcom.yang.entity.Role;@58ce9668
+2025-11-22 21:00:39 [main] INFO  RoleController - 查询角色:
+2025-11-22 21:00:39 [main] INFO  RoleController - 查询角色成功
+2025-11-22 21:00:39 [main] INFO  RoleController - 查询角色信息:Role{role_id=9, roleName='null'}
+2025-11-22 21:00:43 [main] INFO  RoleController - 修改角色:
+2025-11-22 21:00:43 [main] INFO  RoleController - 修改角色成功
+2025-11-22 21:00:43 [main] INFO  RoleController - 查询所有角色:
+2025-11-22 21:00:44 [main] INFO  RoleController - 查询所有角色成功
+2025-11-22 21:00:44 [main] INFO  RoleController - 查询所有角色信息:[Lcom.yang.entity.Role;@6af9fcb2
+2025-11-22 21:00:55 [main] INFO  RoleController - 添加角色:
+2025-11-22 21:00:55 [main] INFO  RoleController - 添加角色信息:Role{role_id=0, roleName='wqul'}
+2025-11-22 21:00:55 [main] INFO  RoleController - 添加角色成功
+2025-11-22 21:00:58 [main] INFO  RoleController - 查询所有角色:
+2025-11-22 21:00:58 [main] INFO  RoleController - 查询所有角色成功
+2025-11-22 21:00:58 [main] INFO  RoleController - 查询所有角色信息:[Lcom.yang.entity.Role;@61544ae6
+2025-11-22 21:01:03 [main] INFO  RoleController - 查询所有角色:
+2025-11-22 21:01:03 [main] INFO  RoleController - 查询所有角色成功
+2025-11-22 21:01:03 [main] INFO  RoleController - 查询所有角色信息:[Lcom.yang.entity.Role;@63fbfaeb
+2025-11-22 21:01:07 [main] INFO  RoleController - 查询角色:
+2025-11-22 21:01:07 [main] INFO  RoleController - 查询角色成功
+2025-11-22 21:01:07 [main] INFO  RoleController - 查询角色信息:Role{role_id=16, roleName='null'}
+2025-11-22 21:01:08 [main] INFO  RoleController - 删除角色:
+2025-11-22 21:01:08 [main] INFO  RoleController - 删除角色成功
+2025-11-22 21:01:09 [main] INFO  RoleController - 查询所有角色:
+2025-11-22 21:01:09 [main] INFO  RoleController - 查询所有角色成功
+2025-11-22 21:01:09 [main] INFO  RoleController - 查询所有角色信息:[Lcom.yang.entity.Role;@2f62ea70
+2025-11-22 21:01:27 [main] INFO  LoginController - 用户登录:
+2025-11-22 21:01:27 [main] INFO  LoginController - 用户信息:User{user_id=0, name='cqus', password='123', role_id=0}
+2025-11-22 21:01:27 [main] INFO  LoginController - 用户登录成功

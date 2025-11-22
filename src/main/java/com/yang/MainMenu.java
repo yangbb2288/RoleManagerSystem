@@ -13,8 +13,8 @@ import java.util.Scanner;
 public class MainMenu {
     public static Scanner scanner = new Scanner(System.in);
     public static MainMenu mainMenu;
-    public static User n_user = null;
-    public static Role n_role = new Role();
+    public static volatile User n_user = null;
+    public static volatile Role n_role = new Role();
 
     static {
         mainMenu = new MainMenu();

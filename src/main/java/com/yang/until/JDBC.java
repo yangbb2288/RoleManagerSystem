@@ -2,11 +2,13 @@ package com.yang.until;
 
 
 import com.yang.entity.result.Result;
+import com.yang.entity.result.ResultSetData;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.*;
 
 
 public class JDBC {
@@ -27,9 +29,9 @@ public class JDBC {
     }
 
     public Result run(String sql, int i) {
+        ResultSet s = null;
         Connection conn = null;
         Statement stmt = null;
-        ResultSet s = null;
         try {
             //注册驱动
             //Class.forName("com.mysql.jdbc.Driver");
@@ -45,8 +47,12 @@ public class JDBC {
                     return new Result(200, "修改成功", null);
                 case 2:
                     //查询数据
-                    s=stmt.executeQuery(sql);
-                    return new Result(200, "查询成功", s);
+                    s = stmt.executeQuery(sql);
+                    ResultSetData data= copyResultSet(s);
+                    if(data.getRows().isEmpty()){
+                        return new Result(500, "查询失败", null);
+                    }
+                    return new Result(200, "查询成功", data);
                 case 3:
                     //删除数据
                     stmt.executeUpdate(sql);
@@ -55,7 +61,40 @@ public class JDBC {
                     return new Result(500, "请输入正确的数字", null);
             }
         } catch (Exception e) {
-            return new Result(500, e.getMessage(), null);
+            throw new RuntimeException(e.getMessage());
+        } finally {
+            try {
+                if (s != null) s.close();
+                if (stmt != null) stmt.close();
+                if (conn != null) conn.close();
+            } catch (Exception e2) {
+                throw new RuntimeException(e2.getMessage());
+            }
+        }
+    }
+
+    // 拷贝 ResultSet 数据的方法
+    private ResultSetData copyResultSet(ResultSet rs){
+        ResultSetData resultSetData = new ResultSetData();
+        try {
+            List<Map<String, Object>> rows = new ArrayList<>();
+            int columnCount = rs.getMetaData().getColumnCount();
+            List<String> columnNames = new ArrayList<>();
+            for (int i = 1; i <= columnCount; i++) {
+                columnNames.add(rs.getMetaData().getColumnName(i));
+            }
+            resultSetData.setColumnNames(columnNames);
+            while (rs.next()) {
+                Map<String, Object> row = new HashMap<>();
+                for (int i = 1; i <= columnCount; i++) {
+                    row.put(columnNames.get(i - 1), rs.getObject(i));
+                }
+                rows.add(row);
+            }
+            resultSetData.setRows(rows);
+            return resultSetData;
+        } catch (Exception e) {
+            throw new RuntimeException(e.getMessage());
         }
     }
 }

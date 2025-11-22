@@ -1,36 +1,41 @@
 package com.yang.entity.result;
 
 public class Result {
-    private static String msg;
-    private static int code;
-    private static Object data;
+    private String msg;
+    private int code;
+    private Object data;
     public Result(int code,String msg,Object data) {
         this.msg = msg;
         this.code = code;
         this.data = data;
     }
+    public Result(){
+        msg="";
+        code=500;
+        data=null;
+    }
 
-    public static String getMsg() {
+    public String getMsg() {
         return msg;
     }
 
-    public static void setMsg(String msg) {
-        Result.msg = msg;
+    public void setMsg(String msg) {
+        this.msg = msg;
     }
 
-    public static int getCode() {
+    public int getCode() {
         return code;
     }
 
-    public static void setCode(int code) {
-        Result.code = code;
+    public void setCode(int code) {
+        this.code = code;
     }
 
-    public static Object getData() {
+    public Object getData() {
         return data;
     }
 
-    public static void setData(Object data) {
-        Result.data = data;
+    public void setData(Object data) {
+        this.data = data;
     }
 }
